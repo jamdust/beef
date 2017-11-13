@@ -1,0 +1,10 @@
+<h2>My Zeroes</h2>
+
+<ul class="zeroes">
+  <li *ngFor="let zero of zeroes">
+    <a routerLink="/detail/{{zero.ID}}">
+      <span class="badge">{{zero.ID}}</span> {{zero.Name}}
+    </a>
+  </li>
+</ul>
+

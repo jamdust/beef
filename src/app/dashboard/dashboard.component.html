@@ -1,0 +1,8 @@
+ <h3>Top Zeroes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let zero of zeroes" class="col-1-4" routerLink="/detail/{{zero.ID}}">>
+    <div class="module zero">
+      <h4>{{zero.Name}}</h4>
+    </div>
+  </a>
+</div>
