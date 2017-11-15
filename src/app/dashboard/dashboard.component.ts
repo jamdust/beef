@@ -18,6 +18,6 @@ export class DashboardComponent implements OnInit {
 
   getZeroes(): void {
     this.zeroService.getZeroes()
-      .subscribe(zeroes => this.zeroes = zeroes.slice(1, 5));
+      .subscribe(zeroes => this.zeroes = zeroes.slice(0, 8));
   }
 }

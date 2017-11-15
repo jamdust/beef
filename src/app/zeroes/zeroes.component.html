@@ -1,10 +1,22 @@
 <h2>My Zeroes</h2>
 
+ <div>
+  <label>Zero Name:
+    <input #zeroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(zeroName.value); zeroName.value=''">
+    add
+  </button>
+</div>
+
 <ul class="zeroes">
   <li *ngFor="let zero of zeroes">
-    <a routerLink="/detail/{{zero.ID}}">
-      <span class="badge">{{zero.ID}}</span> {{zero.Name}}
+    <a routerLink="/detail/{{zero.id}}">
+      <span class="badge">{{zero.id}}</span> {{zero.Name}}
     </a>
+    <button class="delete" title="delete zero"
+    (click)="remove(zero)">x</button>
   </li>
 </ul>
 

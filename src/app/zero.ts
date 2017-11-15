@@ -1,4 +1,4 @@
 export class Zero {
-  ID: number;
+  id: number;
   Name: string;
 }

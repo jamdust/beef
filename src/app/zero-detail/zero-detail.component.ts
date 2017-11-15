@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Zero} from '../zero';
 import {Location} from '@angular/common';
 import {ZeroService} from '../zero.service';
@@ -8,10 +8,10 @@ import {ActivatedRoute} from '@angular/router';
   selector: 'app-zero-detail',
   templateUrl: './zero-detail.component.html',
   styleUrls: ['./zero-detail.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
 export class ZeroDetailComponent implements OnInit {
   @Input() zero: Zero;
+
   constructor(
     private route: ActivatedRoute,
     private zeroService: ZeroService,
@@ -23,12 +23,17 @@ export class ZeroDetailComponent implements OnInit {
   }
 
   getZero(): void {
-    const ID = +this.route.snapshot.paramMap.get('ID');
-    this.zeroService.getZero(ID).subscribe(zero => this.zero = zero);
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.zeroService.log('Retrieving: ' + id);
+    this.zeroService.getZero(id).subscribe(zero => this.zero = zero);
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    this.zeroService.updateZero(this.zero).subscribe(() => this.goBack());
   }
 
 }

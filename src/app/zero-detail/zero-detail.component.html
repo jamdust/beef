@@ -1,13 +1,14 @@
 <div *ngIf="zero">
-    <h2>{{ zero.name | uppercase }} Zero Details</h2>
+    <h2>{{ zero.Name | uppercase }} Zero Details</h2>
     <div>
-        <span>id: </span>{{zero.ID}}
+        <span>id: </span>{{zero.id}}
     </div>
     <div>
-        <label>name: <input [(ngModel)]="zero.Name"
+        <label>Name: <input [(ngModel)]="zero.Name"
             placeholder="Name">
         </label>
     </div>
     <button (click)="goBack()">go back</button>
 </div>
+<button (click)="save()">save</button>
 
