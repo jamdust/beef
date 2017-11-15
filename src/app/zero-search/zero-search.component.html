@@ -1,0 +1,11 @@
+
+<div id="search-component">
+	<h4>Zero Search</h4>
+
+	<input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+	<ul class="search-result">
+		<li *ngFor="let zero of zeroes$ | async"><a
+			routerLink="/detail/{{zero.id}}"> {{zero.Name}} </a></li>
+	</ul>
+</div>
